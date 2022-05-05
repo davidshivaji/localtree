@@ -12,16 +12,18 @@ os.chdir("/Users/shivaji/projects/crequests/requests")
 modules = [item[:-3] for item in os.listdir('.') if item.endswith(".py")]
 tree = dict.fromkeys(modules, [])
 
-tree
-
 
 
 linecount = 0
 
+# for string in list
 for module in modules:
+    dependencies = []
     with open(module + '.py', "r") as file:
 
         text = file.read()
+        # if module == "models":
+        #     print(text)
 
         # might as well count lines
         for line in text.split('\n'):
@@ -31,19 +33,27 @@ for module in modules:
         # matching the dot.
         # if something has no group 1, it's not a local import.
             z = re.search("(from\s)(\.\s|\.[^\s]+)*(.*)(import)\s([^\s]+)", line)
-            # print(text)
+        # print(text)
+        # if there's a match in
             if z:
-                # print(z.groups()[1])
+                # print(z.groups())
                 if z.groups()[1]:
                     if z.groups()[1] == ". ":
                         mod = z.groups()[4]
                     else:
+                        # mod = ".auth" (in the case of models.py)
                         mod = z.groups()[1][1:]
+                        # mod = 0
 
-                    # print(mod)
-                    # print(z.groups())
-    tree[module].append(mod)
-                # take the second group and check in modules
+                # print(mod)
+                # should fucking well have models and auth
+                    dependencies.append(mod)
+        # print(module, dependencies)
+        # tree[module].append(mod)
+            # print('niet')
+        tree[module] = list(set(dependencies))
+                # it should only be going if it's in there.
+
         # tree[module].append(8)
             # if line.startswith('from') or line.startswith('import'):
                 # print(line)
@@ -51,6 +61,7 @@ for module in modules:
 
 
 # print(tree)
+print('\n')
 for item, value in tree.items():
     print(item, value)
 
