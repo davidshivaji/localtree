@@ -1,10 +1,10 @@
 # localtree
 
-## goal:
+## goal
 input a python package as a directory, & this localtree package will make a dictionary which describes the local module import heirarchy.
 
-## eventually:
+## eventually
 make a visual heirarchy with lines between each module.
 
-## purpose:
+## purpose
 so that i know which order to read through python packages: start with modules which have no local dependencies.
