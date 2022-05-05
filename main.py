@@ -41,8 +41,8 @@ for module in modules:
                         mod = z.groups()[1][1:]
 
                     # print(mod)
-        tree[module].append(mod)
-                    print(z.groups())
+                    # print(z.groups())
+    tree[module].append(mod)
                 # take the second group and check in modules
         # tree[module].append(8)
             # if line.startswith('from') or line.startswith('import'):
@@ -50,7 +50,9 @@ for module in modules:
 
 
 
-print(tree)
+# print(tree)
+for item, value in tree.items():
+    print(item, value)
 
 print(linecount)
 
