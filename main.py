@@ -28,15 +28,21 @@ for module in modules:
             linecount += 1
         # account for: from . import sessions
         # y = re.search("(from\s)\.(.+)")
-        z = re.search("(from\s)\.(\s)*(.*)(import)\s([^\s]+)", text)
-        # print(text)
-        if z:
-            # print(z.groups()[1])
-            if z.groups()[1] == " ":
-                # it means from . import x
-                x = z.groups()[3]
-                print(x)
-            print(z.groups())
+        # matching the dot.
+        # if something has no group 1, it's not a local import.
+            z = re.search("(from\s)(\.\s|\.[^\s]+)*(.*)(import)\s([^\s]+)", line)
+            # print(text)
+            if z:
+                # print(z.groups()[1])
+                if z.groups()[1]:
+                    if z.groups()[1] == ". ":
+                        mod = z.groups()[4]
+                    else:
+                        mod = z.groups()[1][1:]
+
+                    # print(mod)
+        tree[module].append(mod)
+                    print(z.groups())
                 # take the second group and check in modules
         # tree[module].append(8)
             # if line.startswith('from') or line.startswith('import'):
