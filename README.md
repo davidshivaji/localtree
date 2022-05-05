@@ -1,4 +1,6 @@
 # localtree
 
 ## alright
-purpose of this: input a python package as a directory, & this localtree package will make a dictionary which describes the import heirarchy.
+purpose of this: input a python package as a directory, & this localtree package will make a dictionary which describes the module import heirarchy.
+
+eventually: make a visual heirarchy with lines between each module.
