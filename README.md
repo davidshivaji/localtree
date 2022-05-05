@@ -7,4 +7,4 @@ input a python package as a directory, & this localtree package will make a dict
 make a visual heirarchy with lines between each module.
 
 ## purpose:
-so that i know what to read first when reading through python packages: modules which have no local dependencies.
+so that i know which order to read through python packages: start with modules which have no local dependencies.
