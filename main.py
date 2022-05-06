@@ -53,3 +53,11 @@ print(linecount)
 
 # what is the data structure?
 # it's a fuckin tree.
+
+# which ones contain cookies.
+
+def whatuses(module):
+    # which modules use
+    return [key for key, value in tree.items() if module in value]
+
+whatuses("sessions")
