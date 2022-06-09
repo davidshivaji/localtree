@@ -56,8 +56,25 @@ print(linecount)
 
 # which ones contain cookies.
 
+
 def whatuses(module):
     # which modules use
     return [key for key, value in tree.items() if module in value]
 
-whatuses("sessions")
+def whatneedfor(module):
+    return tree[module]
+
+whatneedfor("models")
+whatneedfor('auth')
+whatneedfor('utils')
+whatneedfor('certs')
+
+whatneedfor('structures')
+
+
+
+whatuses("cookies")
+whatuses("hooks")
+whatuses("models")
+whatuses("adapters")
+what
